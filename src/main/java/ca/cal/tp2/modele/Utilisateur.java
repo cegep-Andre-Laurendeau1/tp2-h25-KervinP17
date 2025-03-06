@@ -3,31 +3,28 @@ package ca.cal.tp2.modele;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "UTILISATEUR")
-@Access(AccessType.FIELD)
+@Getter
 public class Utilisateur {
 
     @Id
     @Column(name = "ID")
-    private int id;
+    private long id;
+    private String name;
+    private String email;
+    private String phoneNumber;
 
 
-
-    public Utilisateur(int id) {
+    public Utilisateur(long id , String name, String email, String phoneNumber) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
-    public Utilisateur() {
-
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
 }
