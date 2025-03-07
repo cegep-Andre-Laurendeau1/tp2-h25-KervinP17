@@ -14,15 +14,19 @@ public class Main {
 
         TcpServer.createServer();
 
-        EmprunteurService emprunteurService = new EmprunteurService(new UtilisateurRepositoryJPA());
-        emprunteurService.createUtilisateur("Jobin2", "Jobin25@gmail.com", "1234567890");
-        emprunteurService.createUtilisateur("Jobin3", "Jobin35@gmail.com", "1234567890");
+        EmprunteurService emprunteurService = new EmprunteurService(new UtilisateurRepositoryJPA(),
+                                                                    new EmprunteurRepositoryJPA());
+        emprunteurService.createEmprunteur("Jobin2", "Jobin25@gmail.com", "1234567890");
 
-        DocumentService documentService = new DocumentService(new DocumentRepositoryJPA(), new LivreRepositoryJPA(),
-                                                                new CDRepositoryJPA(), new DVDRepositoryJPA());
+        DocumentService documentService = new DocumentService(new DocumentRepositoryJPA(),
+                                        new LivreRepositoryJPA(),
+                                        new CDRepositoryJPA(), new DVDRepositoryJPA());
 
-        documentService.createLivre("Namleur 2", 5, "65-49567-423", "Aut", "Edi", 210);
-        documentService.createCD("Featherlight", 2, "Mistorlore", 50, "Jazz");
-        documentService.createDVD("Road Blocks: Le film", 6, "Christopher Longitude", 120, "PG-13");
+        documentService.createLivre("Namleur 2", 5, "65-49567-423",
+                                "Aut", "Edi", 210);
+        documentService.createCD("Featherlight", 2, "Mistorlore",
+                                50, "Jazz");
+        documentService.createDVD("Road Blocks: Le film", 6,
+                            "Christopher Longitude", 120, "PG-13");
     }
 }
