@@ -16,8 +16,8 @@ public class CDRepositoryJPA implements CDRepository {
             em.persist(cd);
             em.getTransaction().commit();
         }
-//        catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
