@@ -20,8 +20,7 @@ public class Utilisateur {
     private String phoneNumber;
 
 
-    public Utilisateur(long id , String name, String email, String phoneNumber) {
-        this.id = id;
+    public Utilisateur(String name, String email, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;

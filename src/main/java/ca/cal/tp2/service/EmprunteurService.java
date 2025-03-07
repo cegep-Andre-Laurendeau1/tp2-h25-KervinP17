@@ -9,9 +9,7 @@ public class EmprunteurService {
 
     private final UtilisateurRepository utilisateurRepository;
 
-    public void createUtilisateur(int id, String name, String email, String phoneNumber) {
-
-        utilisateurRepository.save(new Utilisateur(id));
-
+    public void createUtilisateur( String name, String email, String phoneNumber) {
+        utilisateurRepository.save(new Utilisateur(name, email, phoneNumber));
     }
 }

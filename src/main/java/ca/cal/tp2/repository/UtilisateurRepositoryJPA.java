@@ -6,17 +6,15 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class UtilisateurRepositoryJPA implements UtilisateurRepository {
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
 
     @Override
     public void save(Utilisateur utilisateur) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("bibliotheque");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        //TODO save utilisateur dans db
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            em.persist(utilisateur);
+            em.getTransaction().commit();
 
-
-        em.getTransaction().commit();
-        em.close();
-
+        }
     }
 }
