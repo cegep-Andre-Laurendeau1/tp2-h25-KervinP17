@@ -3,6 +3,7 @@ package ca.cal.tp2.modele;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
@@ -14,7 +15,9 @@ public abstract class Document {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
+    @Setter
     private String titre;
+    @Setter
     private int nombreExemplaires;
 
     public Document(String titre, int nombreExemplaires) {
@@ -25,4 +28,7 @@ public abstract class Document {
     public Document(Long id) {
         this.id = id;
     }
+
+
+
 }
