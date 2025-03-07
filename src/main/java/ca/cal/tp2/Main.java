@@ -25,5 +25,6 @@ public class Main {
                                                                 new CDRepositoryJPA());
 
         documentService.createLivre("Namleur 2", 5, "65-49567-423", "Aut", "Edi", 210);
+        documentService.createCD("Featherlight", 2, "Mistorlore", 50, "Jazz");
     }
 }
