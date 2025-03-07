@@ -1,16 +1,15 @@
 package ca.cal.tp2.modele;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @Getter
-public class Document {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(name = "discriminator")
+public abstract class Document {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -23,5 +22,7 @@ public class Document {
         this.nombreExemplaires = nombreExemplaires;
     }
 
-
+    public Document(Long id) {
+        this.id = id;
+    }
 }

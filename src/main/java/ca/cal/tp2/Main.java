@@ -1,6 +1,7 @@
 package ca.cal.tp2;
 
-import ca.cal.tp2.repository.DocumentRepositoryJPA.DocumentRepositoryJPA;
+import ca.cal.tp2.repository.DocumentRepositoryJPA;
+import ca.cal.tp2.repository.LivreRepositoryJPA;
 import ca.cal.tp2.repository.UtilisateurRepositoryJPA;
 import ca.cal.tp2.service.DocumentService;
 import ca.cal.tp2.service.EmprunteurService;
@@ -18,7 +19,7 @@ public class Main {
         emprunteurService.createUtilisateur("Jobin2", "Jobin25@gmail.com", "1234567890");
         emprunteurService.createUtilisateur("Jobin3", "Jobin35@gmail.com", "1234567890");
 
-        DocumentService documentService = new DocumentService(new DocumentRepositoryJPA());
-        documentService.createDocument("livre1", 10);
+        DocumentService documentService = new DocumentService(new DocumentRepositoryJPA(), new LivreRepositoryJPA());
+        documentService.createLivre( "65-49567-423", "Aut", "Edi", 210);
     }
 }
