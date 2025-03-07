@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class Utilisateur {
 
     @Id
-    @Column(name = "ID")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String email;
     private String phoneNumber;
