@@ -8,6 +8,7 @@ import ca.cal.tp2.repository.CDRepository;
 import ca.cal.tp2.repository.DVDRepository;
 import ca.cal.tp2.repository.DocumentRepository;
 import ca.cal.tp2.repository.LivreRepository;
+import ca.cal.tp2.service.dto.LivreDTO;
 
 public class DocumentService {
 
@@ -58,5 +59,9 @@ public class DocumentService {
         dvd.setDuree(duree);
         dvd.setRating(rating);
         dvdRepository.save(dvd);
+    }
+
+    public LivreDTO findLivre(String titre, String auteur) {
+        return LivreDTO.toDTO(livreRepository.findLivre(titre, auteur));
     }
 }

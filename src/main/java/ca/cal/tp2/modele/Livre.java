@@ -1,5 +1,6 @@
 package ca.cal.tp2.modele;
 
+import ca.cal.tp2.service.dto.LivreDTO;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -20,4 +21,7 @@ public class Livre extends Document {
     @Setter
     private int nombrePages;
 
+    public LivreDTO toDTO() {
+        return new LivreDTO(getId(), getTitre(), getNombreExemplaires(), ISBN, auteur, editeur, nombrePages);
+    }
 }
